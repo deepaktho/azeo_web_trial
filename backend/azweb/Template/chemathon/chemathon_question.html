@@ -1,0 +1,565 @@
+{% extends 'main_website/header.html' %}
+{% load static %}
+{% block active_register %} class="nav-link scrollto active " {% endblock %}
+
+{% block css_file %}
+<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<link href="{% static 'assets/css/main_website.css' %}" rel="stylesheet">
+{% endblock %}
+<!-- background: url("{% static 'assets/img/bgimage3.jpeg' %}");  -->
+{% block css %}
+
+<style>
+    body {
+
+        background-color: #31CCBA;
+        overflow-x: hidden;
+    }
+
+     .container_form{
+        width: 50%;
+        margin: 2% auto;
+        /*display: flex;*/
+        flex-direction: row;
+        box-shadow: 20px 20px 50px 15px #31CCBA;
+        border: grey 1px solid;
+
+    }
+
+    .panel-body {
+        border-color: #ddd;
+        /* padding: 40px; */
+        margin: 20px;
+        background: linear-gradient(to left,#f2f5f4, #31CCBA);
+
+
+        border-radius: 5px;
+    }
+
+
+    form {
+
+        width: 100%;
+    }
+    .image_form{
+
+        width: 80%;
+    }
+
+
+    .panel-default {
+        border-color: #ddd;
+        /* padding: 40px; */
+        margin: 0px;
+    }
+
+
+    #mypanelId {
+        color: #fff;
+        background-color: #337ab7;
+
+    }
+
+    .image_form img{
+        width:100%;
+        height: 100%;
+    }
+
+    .text-red {
+        color: red;
+    }
+
+    #title {
+
+        font-weight: bolder;
+        color: #0d6efd;
+        font-size: 400%;
+        padding: 1%;
+        border-radius: 3%;
+
+
+    }
+
+    #title_div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .panel-body {
+        display: flex;
+        flex-direction: row;
+        flex-flow: row wrap;
+        margin: 0;
+        justify-content: space-around;
+        padding-top: 2%;
+    }
+
+    .clearfix {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin-bottom: 10px;
+
+
+
+    }
+
+    label{
+            margin-bottom: 2%;
+    }
+
+    .text-right{
+        text-align: left;
+    }
+    #header .container::before{
+        content: none;
+    }
+
+    .submit{
+        margin: 3% 0;
+        text-align: center;
+    }
+
+    #third{
+        display = none;
+    }
+
+
+    .dis_ans{
+        display:none;
+        color:blue;
+
+
+    }
+
+    .control-label{
+        width: 90.333333%;
+    }
+
+    .btn{
+        margin-top: 2%;
+        margin-bottom:1%;
+    }
+    .check_ans{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    #title{
+            margin-top: 10%;
+    }
+    .q_pdf{
+        color:blue;
+    }
+
+    .alert ul{
+   height: 10em;
+   overflow-y: auto ;
+   text-align:left;
+}
+
+
+
+    @media (min-width: 992px) {
+        .col-md-8 {
+            width: 99%;
+        }
+
+        .col-md-4 {
+            width: 90%;
+        }
+
+        .col-md-6 {
+            width: 100%;
+        }
+        .alert{
+        width: 50%;
+        margin: 0 auto;
+        text-align:center;
+        }
+        .team_id {
+            margin-bottom: 4%;
+        }
+    }
+
+
+
+    @media (min-width: 1400px){
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1320px;
+}
+    }
+
+
+
+    @media (max-width: 991px) {
+        .image_form{
+            display: none;
+
+        }
+
+
+        .clearfix {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .form_div{
+            left:5%;
+        }
+
+        .container_form {
+            width: 100%;
+            margin: 29% auto;
+            /* margin-right: 0; */
+            display: flex;
+            flex-direction: row;
+        }
+
+         .text-right {
+            text-align: center;
+        }
+        .submit{
+            margin:auto;
+        }
+        .section-title{
+            margin-top:20%;
+        }
+    }
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="section-title">
+      <h2 data-aos="fade-in" id='title'>Chemathon</h2>
+    </div>
+{{ form.errors }}
+{{ form.non_field_errors }}
+<div class="alert alert-success">
+    <h4>Important Instructions</h4>
+    <ul>
+        <li>Before you start, please check the <b><a class='q_pdf' href='https://tinyurl.com/Chemathon2022PS'>problem statement</a></b> to understand the structure, rules & regulations of the Chemathon competition.</li>
+        <li>You need to fill out your Team ID to submit.</li>
+        <li>Enter decimal values. Don’t enter fractions.</li>
+        <li>If the answer you entered is within the acceptable range, "The answer falls within an acceptable range.” will be shown. Otherwise, “Answer is out of range” will be shown.</li>
+        <li>If any of your answers are not in the acceptable range, you will not be able to submit. To submit, leave the blanks empty for those questions.</li>
+        <li>You can revisit the page to attempt the remaining questions even if you submit.</li>
+        <li>Your answers will be saved in our database when you submit, but your answers will not be visible when you revisit the page.</li>
+        <li>If you lose internet connection/refresh or close the page, your answers will not be saved in our database and will not be visible when you revisit the portal.</li>
+        <li>Make sure to note down your answers somewhere.</li>
+        <li>You can submit even if you haven’t solved all the problems. Your final submission should include answers to all the questions you have solved and wish to submit. Your latest submission will be considered for evaluation.</li>
+        <li>There is no limitation on the number of submissions.</li>
+        <li>Weightage for parameter values is only 20% per question. So, you have to invest time in the README file and code. Remember README & Code files have a weightage of 80% per question.</li>
+        <li>If you have any queries, please fill out this <b><a class='q_pdf' href = 'https://forms.gle/3x1GdRFVyn5iKy598'>Query Form</a>.</b> We will check your query, resolve it as soon as possible and get back to you. If the query is general, we will add that to the <b><a class='q_pdf' href= 'https://tinyurl.com/ChemathonQS'>General Query Sheet</a></b> along with our response.</li>
+        <li>After you finish solving the problems, upload the ZIP (Code & README files) file <b><a class='q_pdf' href = 'https://forms.gle/DCVxFqKdMui3CuuGA'>here</a></b> link. </li>
+        <li>Submission deadline: 11:00 PM March 20, 2022</li>
+    </ul>
+</div>
+<div class="alert alert-success">
+    <p>If you haven't registered yet, click <b><a class='q_pdf' href='https://www.azeotropy.org/chemathon/'>HERE</a></b> to register</p>
+  <strong>Note!</strong> You can click here for questions PDF   <b>:<a class='q_pdf' href="https://tinyurl.com/ChemathonQuestions"> "Questions"</a></b>.
+</div>
+<div class=" container_form">
+    <!--<div class="image_form" data-aos="fade-right" >-->
+    <!--    <img src="{% static 'assets/img/main_website_image/register_picture.jpg' %}" alt="">-->
+
+    <!--</div>-->
+
+<div class="form_div" data-aos="fade-left" >
+    <form action="{% url 'chemathon:chemathon_questions' %}" method="post">
+        {% csrf_token %}
+
+
+            <div class="panel panel-default">
+                <!-- <div class="panel-heading" id="mypanelId">
+                    <h1 style="text-align: center;"> Register Now</h1>
+                </div> -->
+                <div class="panel-body">
+                    {% if error_message %}
+                    <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                    {% endif %}
+
+                    <!-- <div class="form-group clearfix">
+                            <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.username }}
+                            </div>
+                        </div> -->
+
+                    <div class="form-group clearfix team_id">
+                        <label for="{{ form.team_id.id_for_label }}" class="col-md-4 control-label text-right">
+                            Team ID:</label>
+                        <div class="col-md-6">
+                            {{ form.team_id }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <h4>[Question 1]</h4>
+                        <label for="{{ form.question1.id_for_label }}" class="col-md-4 control-label text-right">Q-i)
+                        Calculate the value of constant K<sub>3</sub> (in hr<sup>-1</sup>).</label>
+                        <div class="col-md-6 q1">
+                            {{ form.question1 }}
+                            <div class='check_ans'>
+                            <button type='button' class='btn' id="btn1">Check your answer</button>
+                            <span id="first" class="dis_ans">hello world</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+
+                        <label for="{{ form.question2.id_for_label }}" class="col-md-4 control-label text-right">Q-ii)
+                        Calculate the value of constant C<sub>m</sub> (in moles/liter).
+                        </label>
+                        <div class="col-md-6 q1">
+                            {{ form.question2 }}
+                            <div class='check_ans'>
+                            <button type='button' class='btn' id="btn2">Check your answer</button>
+                            <div id="second" class="dis_ans">hello world</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group clearfix">
+                         <h4>[Question 2]</h4>
+                        <label for="{{ form.question3.id_for_label }}" class="col-md-4 control-label text-right">Q-i) Find the optimal r value (value of r which has the highest concentration of C<sub>B,out</sub>).
+                            </label>
+                        <div class="col-md-6 q1">
+                            {{ form.question3 }}
+                            <div class='check_ans'>
+                            <button type='button' class='btn' id="btn3">Check your answer</button>
+                            <span id="third" class="dis_ans">hello world</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <label for="{{ form.question4.id_for_label }}" class="col-md-4 control-label text-right">Q-ii) Find the corresponding C<sub>B,out</sub> value.
+                            </label>
+                        <div class="col-md-6 q1">
+                            {{ form.question4 }}
+                            <div class='check_ans'>
+                            <button type='button' class='btn' id="btn4">Check your answer</button>
+                            <span id="fourth" class="dis_ans">hello world</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <h4>[Question 3]</h4>
+                        <label for="{{ form.question5.id_for_label }}" class="col-md-4 control-label text-right">Q-i) Find the value of Bubble Point Pressure?
+                            </label>
+                        <div class="col-md-6 q1">
+                            {{ form.question5 }}
+                            <div class='check_ans'>
+                            <button type='button' class='btn' id="btn5">Check your answer</button>
+                            <span id="fifth" class="dis_ans">hello world</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <label for="{{ form.question6.id_for_label }}" class="col-md-4 control-label text-right">Q-ii) Find the value of Vapour phase composition?
+                            </label>
+                        <div class="col-md-6 q1">
+                            {{ form.question6 }}
+                            <div class='check_ans'>
+                            <button type='button' class='btn' id="btn6">Check your answer</button>
+                            <span id="sixth" class="dis_ans">hello world</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <h4>[Question 4]</h4>
+                        <label for="{{ form.question7.id_for_label }}" class="col-md-4 control-label text-right">Q-i) After 90 seconds, what will be the temperature of the external surface of the acrylic?
+                            </label>
+                        <div class="col-md-6 q1">
+                            {{ form.question7 }}
+                            <div class='check_ans'>
+                            <button type='button' class='btn' id="btn7">Check your answer</button>
+                            <span id="seventh" class="dis_ans">hello world</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--<div class="form-group clearfix">-->
+                    <!--    <label for="{{ form.question3.id_for_label }}"-->
+                    <!--        class="col-md-4 control-label text-right">Q3) ABCDXYZCV</label>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        {{ form.question3 }}-->
+                    <!--        <p>* Preferably give whatsapp number</p>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group clearfix">-->
+                    <!--    <label for="{{ form.question1.id_for_label }}"-->
+                    <!--        class="col-md-4 control-label text-right">Q4) ABCDXYZCV</label>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        {{ form.question4 }}-->
+
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group clearfix">-->
+                    <!--    <label for="{{ form.college.id_for_label }}"-->
+                    <!--        class="col-md-4 control-label text-right">College/University:</label>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        {{ form.college }}-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group clearfix">-->
+                    <!--    <label for="{{ form.current_year.id_for_label }}"-->
+                    <!--        class="col-md-4 control-label text-right">Current year of study:</label>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        {{ form.current_year }}-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group clearfix">-->
+                    <!--    <label for="{{ form.permanent_address.id_for_label }}"-->
+                    <!--        class="col-md-4 control-label text-right">Permanent address-->
+                    <!--            :</label>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        {{ form.permanent_address }}-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group clearfix">-->
+                    <!--    <label for="{{ form.current_year.id_for_label }}"-->
+                    <!--        class="col-md-4 control-label text-right">Pincode:</label>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        {{ form.pincode }}-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group clearfix">-->
+                    <!--    <label for="{{ form.state.id_for_label }}" class="col-md-4 control-label text-right">State:</label>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        {{ form.state }}-->
+                    <!--    </div>-->
+                    <!--</div>-->
+
+                    <p>Submit your ZIP file (Code & README files) <a class='q_pdf' href='https://forms.gle/DCVxFqKdMui3CuuGA'>HERE</a></p>
+
+                    <div class="col-md-6 col-md-offset-4 submit">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+
+
+    </form>
+</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const btn4 = document.getElementById("btn4");
+const btn5 = document.getElementById("btn5");
+const btn6 = document.getElementById("btn6");
+const btn7 = document.getElementById("btn7");
+btn1.onclick = function () {
+const q = document.getElementById("id_question1").value;
+// const btn1 = document.getElementById("btn1");
+
+
+    if(q>=3.9 && q<=4 ){
+        document.getElementById("first").innerHTML = "The answer falls within an acceptable range.";
+    }
+    else{
+        document.getElementById("first").innerHTML = "Answer is out of range";
+    }
+    document.getElementById("first").style.display = "inline-block";
+
+};
+
+btn2.onclick = function () {
+const q = document.getElementById("id_question2").value;
+const btn2 = document.getElementById("btn2");
+    if(q>=0.2 && q<=0.3 ){
+        document.getElementById("second").innerHTML = "The answer falls within an acceptable range.";
+    }
+    else{
+        document.getElementById("second").innerHTML = "Answer is out of range";
+    }
+    document.getElementById("second").style.display = "inline-block";
+};
+
+btn3.onclick = function () {
+const q = document.getElementById("id_question3").value;
+const btn3 = document.getElementById("btn3");
+    if(q==1){
+        document.getElementById("third").innerHTML = "The answer falls within an acceptable range.";
+    }
+    else{
+        document.getElementById("third").innerHTML = "Answer is out of range";
+    }
+    document.getElementById("third").style.display = "inline-block";
+};
+
+btn4.onclick = function () {
+const q = document.getElementById("id_question4").value;
+const btn4 = document.getElementById("btn4");
+    if(q>=930 && q<=940 ){
+        document.getElementById("fourth").innerHTML = "The answer falls within an acceptable range.";
+    }
+    else{
+        document.getElementById("fourth").innerHTML = "Answer is out of range";
+    }
+    document.getElementById("fourth").style.display = "inline-block";
+};
+
+btn5.onclick = function () {
+const q = document.getElementById("id_question5").value;
+const btn5 = document.getElementById("btn5");
+    if(q>=40 && q<=42 ){
+        document.getElementById("fifth").innerHTML = "The answer falls within an acceptable range.";
+    }
+    else{
+        document.getElementById("fifth").innerHTML = "Answer is out of range";
+    }
+    document.getElementById("fifth").style.display = "inline-block";
+};
+
+btn6.onclick = function () {
+const q = document.getElementById("id_question6").value;
+// const btn6 = document.getElementById("btn6");
+    if(q>=0.82 && q<=0.87 ){
+        document.getElementById("sixth").innerHTML = "The answer falls within an acceptable range.";
+    }
+    else{
+        document.getElementById("sixth").innerHTML = "Answer is out of range";
+    }
+    document.getElementById("sixth").style.display = "inline-block";
+};
+
+btn7.onclick = function () {
+const q = document.getElementById("id_question7").value;
+const btn7 = document.getElementById("btn7");
+    if(q>=92 && q<=94 ){
+        document.getElementById("seventh").innerHTML = "The answer falls within an acceptable range.";
+    }
+    else{
+        document.getElementById("seventh").innerHTML = "Answer is out of range";
+    }
+    document.getElementById("seventh").style.display = "inline-block";
+};
+
+
+</script>
+{% endblock %}
+

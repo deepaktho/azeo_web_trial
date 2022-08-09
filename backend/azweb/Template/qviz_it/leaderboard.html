@@ -1,0 +1,95 @@
+{% extends 'main_website/header.html' %}
+{% load static %}
+{% block active_competitions %} class="nav-link scrollto active" {% endblock %}
+{% block css%}
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <style>
+
+    .leaderboard {
+        display:flex;
+        width:50%;
+        margin:0 auto;
+        align-items : center;
+    }
+    .table{
+        margin:0 auto;
+        width:65%;
+
+    }
+    div.message {
+  position: relative;
+  padding: 10px;
+  padding-left: 35px;
+  margin: 30px 10px;
+  box-shadow:0 2px 5px rgba(0,0,0,.3);
+  background: #BBB;
+  color: #FFF;
+
+  -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+       -o-transition: all .5s ease;
+          transition: all .5s ease;
+}
+div.message:hover{
+  box-shadow: 0 15px 20px rgba(10,0,10,.3);
+  -webkit-filter: brightness(110%);
+}
+
+div.message:before{
+
+  font-family: FontAwesome;
+  position: absolute;
+  display: block;
+  top: -21px;
+  left: 50%;
+  margin:0 -21px;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  width: 24px;
+  padding:10px;
+  background: inherit;
+  box-shadow:0 5px 10px rgba(0,0,0,.25);
+  color: rgba(255,255,255,.75);
+  border-radius:50%;
+  border: 2px solid transparent;
+  z-index: 2;
+}
+
+
+
+div.message.success{background: #5A6;
+
+
+
+
+    </style>
+
+{%endblock%}
+{% block content %}
+<br><br>
+<section id="services" class="services section-bg">
+
+     <div class="section-title">
+      <h2 data-aos="fade-in">Leaderboard</h2>
+      <div class="success message">
+	<p>Top 30 finalists have been qualified for the virtual tour to the world's largest refinery hub, <b>"Jamnagar Refinery"</b>.</p>
+</div>
+      <!-- <p data-aos="fade-in">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+    </div>
+    <div class="leaderboard" id="leaderboard">
+        <iframe class='table' src="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vSKFiFCyJphZiFGEGNcqXc_h0lp_NqlKtlrOb9Sq8rYoD37IALv2lBoIkA-wURrBQtFuIfLzmyTAjog/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"  height="1000px" style="border: black 2px solid; "></iframe>
+    </div>
+
+
+</section>
+
+{% endblock %}
+
+
+{% block script %}
+
+
+  </script>
+{% endblock %}

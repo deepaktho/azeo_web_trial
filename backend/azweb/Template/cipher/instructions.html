@@ -1,0 +1,259 @@
+{% extends 'main_website/header.html' %}
+{% load static %}
+{% block active_register %} class="nav-link scrollto active " {% endblock %}
+
+{% block css_file %}
+<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<link href="{% static 'assets/css/main_website.css' %}" rel="stylesheet">
+{% endblock %}
+<!-- background: url("{% static 'assets/img/bgimage3.jpeg' %}");  -->
+{% block css %}
+
+<style>
+    body {
+
+        background-color: #31CCBA;
+        overflow-x: hidden;
+    }
+
+    .navigation-button{
+        display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: #0d6efd;
+    margin-top: 6%;
+    }
+  .secondary-btn {
+        display: inline-block;
+        padding: 5px 10px;
+    }
+    .secondary-btn {
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 1px solid #0d6efd;
+        background: #0d6efd;
+        color: #fff;
+        transition: all 300ms ease 0ms;
+        cursor: pointer;
+    }
+    .secondary-btn:hover, .secondary-btn:focus {
+        background: #377adb;
+        border-color: #377adb;
+    }
+
+
+#title {
+
+        font-weight: bolder;
+        color: #0d6efd;
+        font-size: 400%;
+        padding: 1%;
+        border-radius: 3%;
+}
+#title_div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+.text-content{
+    margin:auto;
+    padding: 1em 2em;
+    text-align: justify;
+}
+.text-content h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+.text-content li{
+    list-style-type: circle;
+}
+.text-content{
+        width: 70%;
+    }
+.text-content{
+        width: 80%;
+        line-height: 2em;
+        /* margin-top: 5%; */
+    }
+#instructions{
+    background:#fbf3f3;
+    box-shadow: 0px 0px 20px 0.5px grey;
+}
+
+#guide{
+    padding-bottom: 2em;
+    border-bottom: 1px solid #aaaaaa;
+}
+.psbutton{
+    width: 50%;
+    padding: 0.5em 1em;
+    margin: auto;
+    background-color: #4134af;
+    /* border: 1px solid #aaaaaa; */
+    border-radius: 5px;
+    text-align: center;
+}
+.rules{
+    margin-top: 1em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #aaaaaa;
+}
+.rules li{
+    list-style-type: circle;
+}
+.rules li::marker{
+    color: #555555;
+    font-weight: 500;
+}
+
+    @media (min-width: 992px) {
+        .col-md-8 {
+            width: 99%;
+        }
+
+        .col-md-4 {
+            width: 90%;
+        }
+
+        .col-md-6 {
+            width: 100%;
+        }
+    }
+
+
+
+    @media (min-width: 1400px){
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1320px;
+}
+    }
+
+
+
+    @media (max-width: 991px) {
+     .section-title{
+            margin-top:5%;
+        }
+
+    #title {
+        font-size: 200%;
+
+}
+
+.timer_box {
+    width: 18%;
+
+}
+
+
+        .navigation-button{
+
+    margin-top: 22%;
+    }
+
+    }
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class = "navigation-button">
+    <a href="/cipher/portal/home" class="secondary-btn" style="display: inline-block;">Home</a>
+        <a href="#" class="secondary-btn" style="display: inline-block;">Instructions</a>
+        <a href="/cipher/portal/leaderboard" class="secondary-btn" style="display: inline-block;">Leaderboard</a>
+</div>
+<div class="section-title">
+      <h2 data-aos="fade-in" id='title'>Instructions</h2>
+    </div>
+   <div class="text-content" id="instructions">
+
+          <h2>Solving the Challenges</h2>
+          <ul id="guide">
+            <li>There are 20 challenges. You must complete the current challenge to move to the next challenge.</li>
+            <li>There are a variety of challenges available, including scrambled words, word searches, and finding answers using hints provided in the form of images or audio.</li>
+            <li>Each challenge includes a description of the question as well as a puzzle (image or a link which will direct you to the puzzle). Solve the puzzle and enter your answer in the box.</li>
+            <li>If you're using a computer or laptop, and the images appear to be too small. To get a clear view of the image, zoom the entire screen.</li>
+            <li>Your progress is saved in real-time, so you can close the browser window at any time and revisit the portal later.
+              Do not clear cookies or cache and use the same device and browser if you wish to do so.
+            </li>
+            <li>If you refresh the page, press on continue button to start from where you left off.</li>
+            <li>If you have any query, you can click on 'Submit Query' button below the challenges portal and send us your queries.</li>
+            <li>There's no need to submit anything. As you fill complete the challenges, your answers will be automatically recorded.</li>
+            <li>For the best experience, view the site on desktop.</li>
+          </ul>
+
+          <h2>Rules and Regulations</h2>
+            <a href="https://bit.ly/3w46ODv" download="chemecross.pdf" target="_blank">
+              <div class="psbutton" id="psbutton">
+               Download
+              </div>
+            </a>
+            <ol class="rules" id="rules">
+              <li>
+                This is an individual participation competition.
+              </li>
+              <li>Students from any engineering background can participate in this competition.</li>
+              <li>
+                Only one answer is correct for each challenge. Instructions, if any, will be mentioned in the challenge itself.
+              </li>
+              <li>We will also be posting hints/corrections and other general queries on the portal itself.</li>
+              <li>
+                Timestamp of the submission will be considered in case of a tie.
+              </li>
+              <li>
+                Any form of plagiarism using social media or other means will lead to
+                immediate disqualification.
+              </li>
+              <li>
+                The final decision-making authority lies with Team AZeotropy, IIT Bombay.
+              </li>
+            </ol>
+
+            <h2>Leaderboard</h2>
+            <ol class="rules" id="rules">
+              <li>
+                A leaderboard will be maintained with the scores of all participating students for every hour.
+              </li>
+              <li>
+                The position on the leader board is not indicative of the final results.
+              </li>
+            </ol>
+
+            <h2>Certificates and Prizes</h2>
+            <ol class="rules" id="rules">
+              <li>
+                Prizes worth Rs.15,000 will be awarded to the top five winners based on the total number of points scored. The submission timestamp will be used in case of a tie in terms of final points.
+              </li>
+            </ol>
+
+            <p class="contact-pre" id="contact-pre">In case of any queries, particpants can contact:</p>
+            <div class="contact-card" id="contact-card">
+              <div class="contact-details" id="contact-details">
+                <p>Harsh Baldawa</p>
+                <p>Competitions Manager, AZeotropy</p>
+                <p>Mob: +91-8412036000</p>
+                <p>Email: <a style="color:#4134af; text-decoration:underline;" href="mailto:harsh.azeotropy@gmail.com" target="_blank">harsh.azeotropy@gmail.com</a></p>
+              </div>
+            </div>
+
+        </div>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+
+
+
+
+
+</script>
+{% endblock %}
+

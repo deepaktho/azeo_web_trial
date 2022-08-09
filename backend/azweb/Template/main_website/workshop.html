@@ -1,0 +1,165 @@
+{% extends 'main_website/header.html' %}
+{% load static %}
+{% block active_workshop %} class="nav-link scrollto active" {% endblock %}
+
+{% block css%}
+<style>
+
+  .services .row{
+    justify-content: space-around;
+  }
+  .upcoming_event{
+    margin:auto;
+}
+
+@media (min-width: 768px){
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 30%;
+}
+}
+</style>
+{% endblock %}
+
+{% block content %}
+ <br>
+ <br>
+    <section id="services" class="services section-bg">
+        <div class="container">
+
+          <div class="section-title">
+            <h2 data-aos="fade-in">Workshops</h2>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-stretch upcoming_event" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/workshop-poster/matlab.jpg' %}"alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="/events/matlab">MATLAB & Simulink Workshop</a></h5>
+            <p class="card-text"> Learn programming language used to solve numerical computations, data plotting and process control.</p>
+            <div class="read-more"><a href="/events/matlab"><i class="bi bi-arrow-right"></i>Read More</a></div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+          <div class="row">
+
+
+        <!--<div class="col-md-6 d-flex align-items-stretch upcoming_event" data-aos="fade-left">-->
+        <!--<div class="card">-->
+        <!--  <div class="card-img">-->
+        <!--    <img src="{% static 'assets/img/main_website_image/competition-poster/LCA-01.jpg' %}"alt="...">-->
+        <!--  </div>-->
+        <!--  <div class="card-body">-->
+        <!--    <h5 class="card-title"><a href="/competitions/lca/">Life Cycle Assessment</a></h5>-->
+        <!--    <p class="card-text"> Life Cycle Assessment, a technique for assessing  environmental impacts associated with all the stages of the life cycle of a commercial product, process, or service.</p>-->
+        <!--    <div class="read-more"><a href="/competitions/lca/"><i class="bi bi-arrow-right"></i>Read More</a></div>-->
+
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+            <div class="col-md-6 d-flex align-items-stretch upcoming_event" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="{% static 'assets/img/main_website_image/competition-poster/LCA-01.jpg' %}"alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="/competitions/lca/">Life Cycle Assessment</a></h5>
+            <p class="card-text"> Life Cycle Assessment, a technique for assessing  environmental impacts associated with all the stages of the life cycle of a commercial product, process, or service.</p>
+            <div class="read-more"><a href="/competitions/lca/"><i class="bi bi-arrow-right"></i>Read More</a></div>
+
+          </div>
+        </div>
+      </div>
+
+
+              <div class="col-md-6 d-flex align-items-stretch upcoming_event" data-aos="fade-right">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/main_website_image/events-poster/R-01.jpg' %}" style="padding:2.5%;" class="poster" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="events/r_workshop">R Workshop</a></h5>
+                  <p class="card-text">Be proficient in R language to become an expert in data analytics</p>
+                   <div class="read-more"><a href="/events/r_workshop"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                </div>
+              </div>
+            </div>
+
+
+              <div class="col-md-6 d-flex align-items-stretch upcoming_event" data-aos="fade-right">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/main_website_image/events-poster/ansys.jpeg' %}" style="padding:2.5%;" class="poster" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="events/ansys">Ansys Workshop</a></h5>
+                  <p class="card-text"> Learn the Basics of Computational Fluid Dynamics using Ansys SpaceClaim and Ansys Fluent Softwares.</p>
+                   <div class="read-more"><a href="/events/ansys"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-right">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/main_website_image/events-poster/dwsim.jpeg' %}" style="padding:2.5%;" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="/events/workshop">DWSIM</a></h5>
+                  <p class="card-text">Expand your skill set by learning to use indispensable software in Chemical Engineering such as MATLAB, ANSYS, R, DWSIM, OpenFOAM, COMSOL.</p>
+                   <div class="read-more"><a href="/events/workshop"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/main_website_image/services-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Aperiores voluptates</a></h5>
+                  <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                  <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-right">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/main_website_image/services-3.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Veritatis natus nisi</a></h5>
+                  <p class="card-text">Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+                  <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/main_website_image/services-4.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Aliquam veritatis</a></h5>
+                  <p class="card-text">Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem. In molestiae earum ab sit esse voluptatem. Eos ipsam cumque ipsum officiis qui nihil aut incidunt aut</p>
+                  <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+   -->
+        </div>
+      </section>
+
+      {% endblock %}
+

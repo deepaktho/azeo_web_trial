@@ -1,0 +1,280 @@
+{% extends 'main_website/header.html' %}
+{% load static %}
+{% block active_events %} class="nav-link scrollto active" {% endblock %}
+{% block css%}
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <style>
+        form{
+            margin-top: 10%;
+            margin-bottom: 10%;
+
+        }
+        .text-red{
+            color: red;
+        }
+         .services .row{
+         justify-content: space-around;
+    }
+
+        .upcoming_event{
+            margin:auto;
+        }
+
+        @media (min-width: 768px){
+        .col-md-6 {
+            flex: 0 0 auto;
+            width: 30%;
+        }
+        }
+
+/*        * {*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*  box-sizing: border-box;*/
+/*}*/
+/*body {*/
+/*  font-family: sans-serif;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  min-height: 100vh;*/
+/*  background: url(bg.jpg);*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+/*}*/
+
+.form {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 15px;
+  min-height: 250px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.form-control{
+    display: block;
+  outline: none;
+  padding: 15px 10px;
+
+  border: solid 1px ;
+  background: none;
+  color: white;
+  width: 200px;
+  transition: border-color 1s;
+}
+
+label{
+    color:white;
+}
+
+}
+
+input {
+  display: block;
+  outline: none;
+  padding: 15px 10px;
+  margin: 30px;
+  border: solid 1px transparent;
+  background: none;
+  color: white;
+  width: 200px;
+  transition: border-color 1s;
+}
+
+.form-control:focus {
+  border-color: royalblue;
+}
+
+.form-group{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    align-items: center;
+}
+
+.form button {
+  padding: 10px;
+  color: white;
+  background: royalblue;
+  border: none;
+  width: 200px;
+  margin-left: 30px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.form button:hover {
+  background: rgb(114, 149, 255);
+}
+
+.action {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+.load {
+  position: relative;
+  margin: 2px 5px;
+  padding-bottom: 5px;
+  border-bottom: solid 2px transparent;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.load.show {
+  border-bottom-color: royalblue;
+}
+
+.form a {
+  color: #3ecaca;
+    text-decoration: underline;
+    font-weight: bold;
+    margin: 5px;
+    text-align: center;
+    transition: 0.5s;
+}
+}
+.form a:hover {
+  color: royalblue;
+}
+
+.login {
+  display: none;
+}
+.reg {
+  display: none;
+}
+
+.show-page {
+  display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    animation: show-page 1s;
+
+}
+
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 64.333333%;
+}
+
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+ @media(max-width: 991px) {
+    .icon-bar {
+    position: fixed;
+    opacity: 70%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: none;
+}
+
+.form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px 30px;
+    min-height: 250px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+label {
+    color: white;
+    margin-left: 13%;
+}
+
+.form-control {
+    display: block;
+    outline: none;
+    padding: 10px 10px;
+    margin-right: 30px;
+    border: solid 1px;
+    background: none;
+    color: white;
+    width: 159px;
+    transition: border-color 1s;
+}
+
+
+    }
+
+
+@keyframes show-page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+    </style>
+
+{%endblock%}
+{% block content %}
+<br><br>
+<section id="services" class="services section-bg">
+
+     <div class="section-title">
+      <h2 data-aos="fade-in">Panel Discussion</h2>
+    </div>
+
+        <form action="{% url 'panel_discussion:register' %}" class="form" method="post">
+            {% csrf_token %}
+            <div class="action">
+        <span class="load show" id="login-action" onclick="openLoginPage()">Registration</span>
+            <br><br>
+                    <div class="panel-body login show-page">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+                        <div class="form-group clearfix">
+                            <label for="{{ form.member1.id_for_label }}" class="col-md-4 control-label text-right">AZeo-ID<span class="text-red">*</span>:</label>
+                            <div class="col-md-6" >
+                                {{ form.member1 }}
+                            </div>
+                        </div>
+                         <p style='color:white'>If you don't have an AZeo_ID, click <a href='/azeo_id'>HERE</a> to create one.</p>
+
+                        <div class="col-md-6 col-md-offset-4 submit">
+                            <input type="submit" value="Register" class="btn btn-success">
+                        </div>
+                        <br>
+                    </div>
+                    </div>
+        </form>
+</section>
+
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+    function openLoginPage() {
+      document.querySelector(".reg").classList.remove("show-page");
+      document.querySelector(".login").classList.add("show-page");
+      document.getElementById("login-action").classList.add("show");
+      document.getElementById("reg-action").classList.remove("show");
+    }
+    function openRegPage() {
+      document.querySelector(".reg").classList.add("show-page");
+      document.querySelector(".login").classList.remove("show-page");
+      document.getElementById("reg-action").classList.add("show");
+      document.getElementById("login-action").classList.remove("show");
+    }
+  </script>
+{% endblock %}
